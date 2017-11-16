@@ -19,7 +19,6 @@ $sth->execute();
 
 $superheroes = $sth->fetchAll();
 
-
 foreach ($superheroes as $superhero)
 {
 ?>
