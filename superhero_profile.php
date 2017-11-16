@@ -36,8 +36,14 @@ foreach ($superheroes as $superhero)
 }
 ?>
 <br>
-<p><?php $sql = "SELECT * FROM profile WHERE email = :email";
-    var_dump($sql)  ?></p>
+<p><?php 
+    
+    $sql = $conn->prepare("SELECT email FROM profile WHERE nickname = '$currentname'");
+    $sql->execute();
+    $email = $sql->fetchAll(); 
+    var_dump($email);
+    
+    ?></p>
 <form action="change_profile.php" method="post">
 <h4>Change your profile information:</h4>
   Change nickname:<br>
