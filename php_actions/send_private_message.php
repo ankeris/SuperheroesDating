@@ -1,4 +1,4 @@
-<script>setTimeout(function(){history.back();}, 1700);</script>
+<script>setTimeout(function(){history.back();}, 1200);</script>
 <?php 
 
 
@@ -6,6 +6,7 @@ $servername = "localhost";
 $username = "root";
 $password = "root";
 
+// connecting to localhost with PDO
 try {
     $conn = new PDO("mysql:host=$servername;dbname=SuperheroesDating", $username, $password);
     // set the PDO error mode to exception
@@ -17,14 +18,18 @@ catch(PDOException $e)
     }
 
 
-$sender = $_POST['sender'];
-$receiver = $_POST['receiver'];
-$message = $_POST['message'];
-
 echo "thank you, message has been sent";
 
-$sql = "INSERT INTO chat (sender, receiver, message) VALUES ('$sender','$receiver','$message')";
+// SQL that inserts the data into chat table
+$sql = "INSERT INTO chat (sender, receiver, message)
+VALUES (?,?,?)";
 
-$conn->prepare($sql)->execute([$sender,$receiver,$message]);
+$values = array(
+$_POST['sender'],
+$_POST['receiver'],
+$_POST['message']
+);
+
+$conn->prepare($sql)->execute($values);
 
 ?>

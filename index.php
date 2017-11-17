@@ -16,7 +16,6 @@ catch(PDOException $e)
 
 $sth = $conn->prepare("SELECT * FROM profile");
 $sth->execute();
-
 $superheroes = $sth->fetchAll();
 
 foreach ($superheroes as $superhero)
@@ -24,7 +23,7 @@ foreach ($superheroes as $superhero)
 ?>
     <ul>
         <li>
-           
+            <!-- href that stores email value in "?users" and sends it to the click profile. So it can identify -->
            <a href="superhero_profile.php?users=<?php echo $superhero['email'] ?>">
                <p><?php echo $superhero['nickname'], " profile"?></p>
             </a>
@@ -35,28 +34,24 @@ foreach ($superheroes as $superhero)
 }
 ?>
 
-<?php
-$chat = $conn->prepare("SELECT * FROM profile");
-$chat->execute();
-
-$chatters = $chat->fetchAll();
-
-
-?>
-
+<!-- Form that lets to select from who to who message should be sent -->
 <form action="php_actions/send_private_message.php" method="post">
     sender:
-    <select name="sender" id="" value="">
-       <?php foreach ($chatters as $chatter) { ?>
+    <select name="sender" id="">
+    <!--  Loops and fills in the possible profiles -->
+       <?php foreach ($superheroes as $chatter) { ?>
+            <!-- Value is sent by the nickname that is selected, sends the email value instead of nickname, because it's unique -->
             <option value="<?php echo $chatter['email'] ?>"><?php echo $chatter['nickname'] ?></option>
         <?php } ?>
-    </select><br>
+    </select>
+    <br>
     receiver:
     <select name="receiver" id="">
-        <?php foreach ($chatters as $chatter) { ?>
+        <?php foreach ($superheroes as $chatter) { ?>
             <option value="<?php echo $chatter['email'] ?>"><?php echo $chatter['nickname'] ?></option>
         <?php } ?>
-    </select><br>
+    </select>
+    <br>
     message:
     <input type="text" name="message">
     

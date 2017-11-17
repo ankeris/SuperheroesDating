@@ -17,12 +17,16 @@ catch(PDOException $e)
 
 var_dump($_POST);
 
-$commenter = $_POST['commenter_name'];
-$comment = $_POST['comment'];
-$email = $_POST['email'];
+$values = array(
+$_POST['commenter_name'],
+$_POST['comment'],
+$_POST['email']
+);
 
-$sql = "INSERT INTO comment (name, comment, profile_email) VALUES ('$commenter','$comment','$email')";
 
-$conn->prepare($sql)->execute([$commenter,$comment,$email]);
+$sql = "INSERT INTO comment (name, comment, profile_email) 
+VALUES (?,?,?)";
+
+$conn->prepare($sql)->execute($values);
 
 ?>
