@@ -1,4 +1,11 @@
+<script>
+window.setTimeout(function() {
+    window.history.go(-1);
+  }, 1000);
+</script>
 <?php 
+
+
 
 $servername = "localhost";
 $username = "root";
@@ -25,7 +32,10 @@ $sql = "UPDATE profile SET like_count = '$likeCount' + 1 WHERE email = '$email'"
 
 $conn->prepare($sql)->execute([$likeCount]);
 
+$previous = "javascript:history.go(-1)";
+if(isset($_SERVER['HTTP_REFERER'])) {
+    $previous = $_SERVER['HTTP_REFERER'];
+}
+
 
 ?>
-
-<a href="javascript:history.go(-1)">link text here...</a>

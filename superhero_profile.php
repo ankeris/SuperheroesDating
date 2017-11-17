@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="style.css">
 <?php
+
 $servername = "localhost";
 $username = "root";
 $password = "root";
@@ -39,7 +40,7 @@ foreach ($superheroes as $superhero)
     <form action="like.php" method="post">
         <input type="hidden" name="like_count" value="<?php echo $superhero['like_count']?>"/>
         <input type="hidden" name="email" value="<?php echo $currentEmail?>"/>
-        <input type="submit" value="Like">
+        <input type="submit" value="Like" onsubmit="window.location.reload()">
         <?php echo $superhero['like_count']?> likes
     </form>
 
