@@ -1,7 +1,6 @@
-
 <?php 
-
 header('Location: ' . $_SERVER['HTTP_REFERER']);
+
 
 $servername = "localhost";
 $username = "root";
