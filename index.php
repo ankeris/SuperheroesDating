@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="style.css">
 <?php
 $servername = "localhost";
 $username = "root";
@@ -17,7 +17,12 @@ catch(PDOException $e)
 $sth = $conn->prepare("SELECT * FROM profile");
 $sth->execute();
 $superheroes = $sth->fetchAll();
+?>
+<main class="homepage">
+<h1>Super Heroes Dating</h1>
 
+<h4>profiles:</h4>
+<?php 
 foreach ($superheroes as $superhero)
 {
 ?>
@@ -27,7 +32,6 @@ foreach ($superheroes as $superhero)
            <a href="superhero_profile.php?users=<?php echo $superhero['email'] ?>">
                <p><?php echo $superhero['nickname'], " profile"?></p>
             </a>
-            
         </li>
     </ul>
 <?php
@@ -36,6 +40,7 @@ foreach ($superheroes as $superhero)
 
 <!-- Form that lets to select from who to who message should be sent -->
 <form action="php_actions/send_private_message.php" method="post">
+    <h4>messenger</h4>
     sender:
     <select name="sender" id="">
     <!--  Loops and fills in the possible profiles -->
@@ -58,4 +63,5 @@ foreach ($superheroes as $superhero)
     <input type="submit" value="Send">
 </form>
 
+</main>
 

@@ -1,4 +1,5 @@
 <?php 
+// Refreshes the webpage
 header('Location: ' . $_SERVER['HTTP_REFERER']);
 
 

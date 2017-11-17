@@ -1,7 +1,76 @@
-main {max-width: 500px; margin: 20px auto; text-align: center;
+* {
+    font-family: Tahoma, Geneva, sans-serif;
+}
+.homepage {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+.homepage ul {
+    list-style: none;
+    text-align: left;
+}
+.homepage ul li {
+    margin: 10px;
+}
+.profile {
+max-width: 600px;
+margin: 20px auto;
+text-align: center;
 border: 2px solid black;
+}
+.button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 4px;
+    position: fixed;
 }
 .profileImage {
     width: 200px;
     height: 200px;
+}
+.comment {
+    text-align: left;
+    border: 1px solid black;
+    margin: 0;
+}
+.profile ul:nth-child(odd) {
+    background: #d8d8d8;
+}
+input[type=text], select {
+    width: 20%;
+    padding: 10px 10px;
+    margin: 5px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 12%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+form {
+    background-color: #c1c1c1;
+    text-align: left;
+    max-width: 500px;
+    margin: 10px auto;
+    padding: 5px;
+}
+
+h4 {
+    text-align: center;
+    margin: 0;
 }

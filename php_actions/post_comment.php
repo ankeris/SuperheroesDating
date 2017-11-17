@@ -1,10 +1,12 @@
 <?php 
+// Refreshes the webpage
 header('Location: ' . $_SERVER['HTTP_REFERER']);
 
 $servername = "localhost";
 $username = "root";
 $password = "root";
 
+// connecting to localhost with PDO
 try {
     $conn = new PDO("mysql:host=$servername;dbname=SuperheroesDating", $username, $password);
     // set the PDO error mode to exception
@@ -23,7 +25,7 @@ $_POST['comment'],
 $_POST['email']
 );
 
-
+// SQL that inserts comments written in form to database
 $sql = "INSERT INTO comment (name, comment, profile_email) 
 VALUES (?,?,?)";
 

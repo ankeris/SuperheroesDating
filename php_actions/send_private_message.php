@@ -1,3 +1,4 @@
+<!-- Some javascript to go back after 1,2 seconds -->
 <script>setTimeout(function(){history.back();}, 1200);</script>
 <?php 
 
@@ -20,7 +21,7 @@ catch(PDOException $e)
 
 echo "thank you, message has been sent";
 
-// SQL that inserts the data into chat table
+// SQL that inserts the data into chat table from form inputs
 $sql = "INSERT INTO chat (sender, receiver, message)
 VALUES (?,?,?)";
 
