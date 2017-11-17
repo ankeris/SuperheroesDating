@@ -37,13 +37,13 @@ foreach ($superheroes as $superhero)
     <h3><?php echo $superhero['nickname']?></h3>
     <img src="<?php echo $superhero['picture']?>" alt="" class="profileImage">
     <p>Superpowers: <?php echo $superhero['superpower']?></p>
+    
     <form action="like.php" method="post">
         <input type="hidden" name="like_count" value="<?php echo $superhero['like_count']?>"/>
         <input type="hidden" name="email" value="<?php echo $currentEmail?>"/>
-        <input type="submit" value="Like" onsubmit="window.location.reload()">
+        <input type="submit" value="Like" onClick="window.location.reload()">
         <?php echo $superhero['like_count']?> likes
     </form>
-
 </main>
 <?php
 }

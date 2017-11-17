@@ -1,11 +1,7 @@
-<script>
-window.setTimeout(function() {
-    window.history.go(-1);
-  }, 1000);
-</script>
+
 <?php 
 
-
+header('Location: ' . $_SERVER['HTTP_REFERER']);
 
 $servername = "localhost";
 $username = "root";
