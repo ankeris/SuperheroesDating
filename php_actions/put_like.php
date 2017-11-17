@@ -22,15 +22,9 @@ var_dump($_POST);
 $likeCount = $_POST['like_count'];
 $email = $_POST['email'];
 
-
 $sql = "UPDATE profile SET like_count = '$likeCount' + 1 WHERE email = '$email'";
 
 $conn->prepare($sql)->execute([$likeCount]);
-
-$previous = "javascript:history.go(-1)";
-if(isset($_SERVER['HTTP_REFERER'])) {
-    $previous = $_SERVER['HTTP_REFERER'];
-}
 
 
 ?>
