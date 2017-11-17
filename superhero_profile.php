@@ -25,15 +25,17 @@ catch(PDOException $e)
     $sth->execute();
     $superheroes = $sth->fetchAll();
 
-// Loops and fills in the needed profile data
-foreach ($superheroes as $superhero)
-{
-?>
 
+?>
 
 <!-- top of the page -->
 <a href="./index.php" class="button">Go back to main page</a>
 
+<!-- Loops and fills in the needed profile data-->
+<?php
+foreach ($superheroes as $superhero)
+{ 
+?>
 
 <main class="profile">
         <!-- name from DB -->
